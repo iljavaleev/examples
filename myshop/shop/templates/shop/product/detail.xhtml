@@ -1,0 +1,27 @@
+{% extends "shop/base.xhtml" %}
+
+{% load static %}
+{% load thumbnail %}
+{% block title %}
+  {{ product.name }}
+{% endblock %}
+
+{% block content %}
+  <div class="product-detail">
+    {% if product.image %}
+    {% thumbnail product.image "300x300" crop="center" as im %}
+    <img src="{{ im.url }}">
+    {% endthumbnail %}
+    {% else %}
+    <img src="{% static 'img/web.png' alt='/' %}">
+    {% endif %}
+    <h1>{{ product.name }}</h1>
+    <h2>
+      <a href="{{ product.category.get_absolute_url }}">
+        {{ product.category }}
+      </a>
+    </h2>
+    <p class="price">${{ product.price }}</p>
+    {{ product.description|linebreaks }}
+  </div>
+{% endblock %}

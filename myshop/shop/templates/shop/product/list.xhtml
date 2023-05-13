@@ -33,7 +33,7 @@
           <img src="{{ im.url }}">
           {% endthumbnail %}
           {% else %}
-          <img src="{% static 'img/web.png' alt='/' %}">
+          <img src="{% static 'img/no_mage.png' alt='/' %}">
           {% endif %}
         </a>
         <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
